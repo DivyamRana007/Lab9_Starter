@@ -87,7 +87,24 @@
     </section>
   </main>
 
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "34084904da504ddbaa17f65404336ec2"
+    });
+  </script>
+                        
+
+  <script>
+    TrackJS.track("Testing TrackJS!");
+
+    window.addEventListener("error", () => {
+      if (window.onerror) {
+        console.log("error occurred");
+      }
+    });
+
+
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -102,6 +119,97 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+ 
+    errorBtns[0].addEventListener('click', () => {
+      console.log("Console Log Button Clicked")
+    })
+
+    errorBtns[1].addEventListener("click", () => {
+        console.error("Error raised");
+      });
+    
+    errorBtns[2].addEventListener("click", () => {
+        console.count("Counting Stars");
+      });
+    
+    errorBtns[3].addEventListener("click", () => {
+        console.warn("Warn Button");
+      });
+
+    errorBtns[4].addEventListener("click", () => {
+        console.assert(5 == 6, { errorMsg: "Assert Button : 5 is not equal to 6" });
+      });
+
+    errorBtns[5].addEventListener("click", () => {
+        console.clear();
+      });
+    
+    errorBtns[6].addEventListener("click", () => {
+        console.dir(errorBtns[6]);
+      });
+
+    errorBtns[7].addEventListener("click", () => {
+        console.dirxml(errorBtns[7]);
+      });
+
+    errorBtns[8].addEventListener("click", () => {
+        console.group();
+        console.log("Created a group");
+        console.log("Grouped the log messages");
+      });
+    
+    errorBtns[9].addEventListener("click", () => {
+        console.groupEnd();
+        console.log("Group Ended");
+      });
+
+    errorBtns[10].addEventListener("click", () => {
+        console.table(["A", 'B', 'C', 'D', 'E', 'F']);
+      });
+
+    errorBtns[11].addEventListener("click", () => {
+        console.time();
+      });
+
+    errorBtns[12].addEventListener("click", () => {
+        console.timeEnd();
+      });
+
+    errorBtns[13].addEventListener("click", () => {
+        console.trace();
+      });
+
+    errorBtns[14].addEventListener("click", () => {
+        const problem = document.querySelector('kdjlghahkuaf njd');
+        let t = Array.from(problem);
+      });
+
+      class TryCatchError extends Error {
+        constructor(message) {
+          super(message); // (1)
+          this.name = "TryCatchError"; 
+        }
+      }
+
+      //let error = new Error("Try Catch Custom Error");
+
+      //try catch
+      try{
+        const problem = document.querySelector('kdjlghahkuaf njd');
+        let t = Array.from(problem);
+        throw new TryCatchError('Intentional', err);
+      }catch(err){
+        console.log(err);
+      }finally{
+        console.log('Finally Triggered')
+      }
+
+
+    
+
+      
+
+
   </script>
 </body>
 
